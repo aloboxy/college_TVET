@@ -1,0 +1,208 @@
+[11-Sep-2023 23:21:49 UTC] PHP Fatal error:  Uncaught ReflectionException: Class translator does not exist in /home/mertyzpc/school.mertu.org/vendor/laravel/framework/src/Illuminate/Container/Container.php:873
+Stack trace:
+#0 /home/mertyzpc/school.mertu.org/vendor/laravel/framework/src/Illuminate/Container/Container.php(873): ReflectionClass->__construct('translator')
+#1 /home/mertyzpc/school.mertu.org/vendor/laravel/framework/src/Illuminate/Container/Container.php(754): Illuminate\Container\Container->build('translator')
+#2 /home/mertyzpc/school.mertu.org/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(841): Illuminate\Container\Container->resolve('translator', Array, true)
+#3 /home/mertyzpc/school.mertu.org/vendor/laravel/framework/src/Illuminate/Container/Container.php(692): Illuminate\Foundation\Application->resolve('translator', Array)
+#4 /home/mertyzpc/school.mertu.org/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(826): Illuminate\Container\Container->make('translator', Array)
+#5 /home/mertyzpc/school.mertu. in /home/mertyzpc/school.mertu.org/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 875
+[04-Oct-2024 00:48:37 UTC] PHP Warning:  require(/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php): Failed to open stream: No such file or directory in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 00:48:37 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php:41
+Stack trace:
+#0 /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php(45): {closure}()
+#1 /home/mertyzpc/school.mertu.org/vendor/autoload.php(25): ComposerAutoloaderInit68fbf13a5167decaf22f39954df67803::getLoader()
+#2 /home/mertyzpc/school.mertu.org/public/index.php(24): require('/home/mertyzpc/...')
+#3 {main}
+  thrown in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 00:48:47 UTC] PHP Warning:  require(/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php): Failed to open stream: No such file or directory in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 00:48:47 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php:41
+Stack trace:
+#0 /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php(45): {closure}()
+#1 /home/mertyzpc/school.mertu.org/vendor/autoload.php(25): ComposerAutoloaderInit68fbf13a5167decaf22f39954df67803::getLoader()
+#2 /home/mertyzpc/school.mertu.org/public/index.php(24): require('/home/mertyzpc/...')
+#3 {main}
+  thrown in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 00:48:55 UTC] PHP Warning:  require(/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php): Failed to open stream: No such file or directory in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 00:48:55 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php:41
+Stack trace:
+#0 /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php(45): {closure}()
+#1 /home/mertyzpc/school.mertu.org/vendor/autoload.php(25): ComposerAutoloaderInit68fbf13a5167decaf22f39954df67803::getLoader()
+#2 /home/mertyzpc/school.mertu.org/public/index.php(24): require('/home/mertyzpc/...')
+#3 {main}
+  thrown in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 00:49:00 UTC] PHP Warning:  require(/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php): Failed to open stream: No such file or directory in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 00:49:00 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php:41
+Stack trace:
+#0 /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php(45): {closure}()
+#1 /home/mertyzpc/school.mertu.org/vendor/autoload.php(25): ComposerAutoloaderInit68fbf13a5167decaf22f39954df67803::getLoader()
+#2 /home/mertyzpc/school.mertu.org/public/index.php(24): require('/home/mertyzpc/...')
+#3 {main}
+  thrown in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 00:51:49 UTC] PHP Warning:  require(/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php): Failed to open stream: No such file or directory in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 00:51:49 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php:41
+Stack trace:
+#0 /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php(45): {closure}()
+#1 /home/mertyzpc/school.mertu.org/vendor/autoload.php(25): ComposerAutoloaderInit68fbf13a5167decaf22f39954df67803::getLoader()
+#2 /home/mertyzpc/school.mertu.org/public/index.php(24): require('/home/mertyzpc/...')
+#3 {main}
+  thrown in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 00:54:16 UTC] PHP Warning:  require(/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php): Failed to open stream: No such file or directory in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 00:54:16 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php:41
+Stack trace:
+#0 /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php(45): {closure}()
+#1 /home/mertyzpc/school.mertu.org/vendor/autoload.php(25): ComposerAutoloaderInit68fbf13a5167decaf22f39954df67803::getLoader()
+#2 /home/mertyzpc/school.mertu.org/public/index.php(24): require('/home/mertyzpc/...')
+#3 {main}
+  thrown in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 00:54:24 UTC] PHP Warning:  require(/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php): Failed to open stream: No such file or directory in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 00:54:24 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php:41
+Stack trace:
+#0 /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php(45): {closure}()
+#1 /home/mertyzpc/school.mertu.org/vendor/autoload.php(25): ComposerAutoloaderInit68fbf13a5167decaf22f39954df67803::getLoader()
+#2 /home/mertyzpc/school.mertu.org/public/index.php(24): require('/home/mertyzpc/...')
+#3 {main}
+  thrown in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 00:55:46 UTC] PHP Warning:  require(/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php): Failed to open stream: No such file or directory in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 00:55:46 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php:41
+Stack trace:
+#0 /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php(45): {closure}()
+#1 /home/mertyzpc/school.mertu.org/vendor/autoload.php(25): ComposerAutoloaderInit68fbf13a5167decaf22f39954df67803::getLoader()
+#2 /home/mertyzpc/school.mertu.org/public/index.php(24): require('/home/mertyzpc/...')
+#3 {main}
+  thrown in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 00:55:55 UTC] PHP Warning:  require(/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php): Failed to open stream: No such file or directory in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 00:55:55 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php:41
+Stack trace:
+#0 /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php(45): {closure}()
+#1 /home/mertyzpc/school.mertu.org/vendor/autoload.php(25): ComposerAutoloaderInit68fbf13a5167decaf22f39954df67803::getLoader()
+#2 /home/mertyzpc/school.mertu.org/public/index.php(24): require('/home/mertyzpc/...')
+#3 {main}
+  thrown in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 00:57:26 UTC] PHP Warning:  require(/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php): Failed to open stream: No such file or directory in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 00:57:26 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php:41
+Stack trace:
+#0 /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php(45): {closure}()
+#1 /home/mertyzpc/school.mertu.org/vendor/autoload.php(25): ComposerAutoloaderInit68fbf13a5167decaf22f39954df67803::getLoader()
+#2 /home/mertyzpc/school.mertu.org/public/index.php(24): require('/home/mertyzpc/...')
+#3 {main}
+  thrown in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 00:59:08 UTC] PHP Warning:  require(/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php): Failed to open stream: No such file or directory in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 00:59:08 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php:41
+Stack trace:
+#0 /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php(45): {closure}()
+#1 /home/mertyzpc/school.mertu.org/vendor/autoload.php(25): ComposerAutoloaderInit68fbf13a5167decaf22f39954df67803::getLoader()
+#2 /home/mertyzpc/school.mertu.org/public/index.php(24): require('/home/mertyzpc/...')
+#3 {main}
+  thrown in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 00:59:15 UTC] PHP Warning:  require(/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php): Failed to open stream: No such file or directory in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 00:59:15 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php:41
+Stack trace:
+#0 /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php(45): {closure}()
+#1 /home/mertyzpc/school.mertu.org/vendor/autoload.php(25): ComposerAutoloaderInit68fbf13a5167decaf22f39954df67803::getLoader()
+#2 /home/mertyzpc/school.mertu.org/public/index.php(24): require('/home/mertyzpc/...')
+#3 {main}
+  thrown in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 00:59:21 UTC] PHP Warning:  require(/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php): Failed to open stream: No such file or directory in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 00:59:21 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php:41
+Stack trace:
+#0 /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php(45): {closure}()
+#1 /home/mertyzpc/school.mertu.org/vendor/autoload.php(25): ComposerAutoloaderInit68fbf13a5167decaf22f39954df67803::getLoader()
+#2 /home/mertyzpc/school.mertu.org/public/index.php(24): require('/home/mertyzpc/...')
+#3 {main}
+  thrown in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 00:59:25 UTC] PHP Warning:  require(/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php): Failed to open stream: No such file or directory in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 00:59:25 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php:41
+Stack trace:
+#0 /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php(45): {closure}()
+#1 /home/mertyzpc/school.mertu.org/vendor/autoload.php(25): ComposerAutoloaderInit68fbf13a5167decaf22f39954df67803::getLoader()
+#2 /home/mertyzpc/school.mertu.org/public/index.php(24): require('/home/mertyzpc/...')
+#3 {main}
+  thrown in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 00:59:46 UTC] PHP Warning:  require(/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php): Failed to open stream: No such file or directory in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 00:59:46 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php:41
+Stack trace:
+#0 /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php(45): {closure}()
+#1 /home/mertyzpc/school.mertu.org/vendor/autoload.php(25): ComposerAutoloaderInit68fbf13a5167decaf22f39954df67803::getLoader()
+#2 /home/mertyzpc/school.mertu.org/public/index.php(24): require('/home/mertyzpc/...')
+#3 {main}
+  thrown in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 01:00:12 UTC] PHP Warning:  require(/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php): Failed to open stream: No such file or directory in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 01:00:12 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php:41
+Stack trace:
+#0 /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php(45): {closure}()
+#1 /home/mertyzpc/school.mertu.org/vendor/autoload.php(25): ComposerAutoloaderInit68fbf13a5167decaf22f39954df67803::getLoader()
+#2 /home/mertyzpc/school.mertu.org/public/index.php(24): require('/home/mertyzpc/...')
+#3 {main}
+  thrown in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 01:00:20 UTC] PHP Warning:  require(/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php): Failed to open stream: No such file or directory in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 01:00:20 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php:41
+Stack trace:
+#0 /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php(45): {closure}()
+#1 /home/mertyzpc/school.mertu.org/vendor/autoload.php(25): ComposerAutoloaderInit68fbf13a5167decaf22f39954df67803::getLoader()
+#2 /home/mertyzpc/school.mertu.org/public/index.php(24): require('/home/mertyzpc/...')
+#3 {main}
+  thrown in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 01:00:41 UTC] PHP Warning:  require(/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php): Failed to open stream: No such file or directory in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 01:00:41 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php:41
+Stack trace:
+#0 /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php(45): {closure}()
+#1 /home/mertyzpc/school.mertu.org/vendor/autoload.php(25): ComposerAutoloaderInit68fbf13a5167decaf22f39954df67803::getLoader()
+#2 /home/mertyzpc/school.mertu.org/public/index.php(24): require('/home/mertyzpc/...')
+#3 {main}
+  thrown in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 01:01:31 UTC] PHP Warning:  require(/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php): Failed to open stream: No such file or directory in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[04-Oct-2024 01:01:31 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mertyzpc/school.mertu.org/vendor/composer/../yajra/laravel-datatables-oracle/src/helper.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php:41
+Stack trace:
+#0 /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php(45): {closure}()
+#1 /home/mertyzpc/school.mertu.org/vendor/autoload.php(25): ComposerAutoloaderInit68fbf13a5167decaf22f39954df67803::getLoader()
+#2 /home/mertyzpc/school.mertu.org/public/index.php(24): require('/home/mertyzpc/...')
+#3 {main}
+  thrown in /home/mertyzpc/school.mertu.org/vendor/composer/autoload_real.php on line 41
+[25-Oct-2024 15:06:24 UTC] PHP Deprecated:  Required parameter $dompdf follows optional parameter $paper in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/src/Adapter/CPDF.php on line 182
+[25-Oct-2024 15:06:24 UTC] PHP Deprecated:  Required parameter $dompdf follows optional parameter $paper in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/src/Canvas.php on line 27
+[25-Oct-2024 15:06:24 UTC] PHP Deprecated:  Required parameter $img follows optional parameter $w in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/lib/Cpdf.php on line 4723
+[25-Oct-2024 15:06:24 UTC] PHP Deprecated:  Required parameter $data follows optional parameter $w in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/lib/Cpdf.php on line 5066
+[25-Oct-2024 15:06:24 UTC] PHP Deprecated:  Required parameter $imageWidth follows optional parameter $w in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/lib/Cpdf.php on line 5410
+[25-Oct-2024 15:06:24 UTC] PHP Deprecated:  Required parameter $imageHeight follows optional parameter $w in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/lib/Cpdf.php on line 5410
+[25-Oct-2024 15:06:24 UTC] PHP Deprecated:  Required parameter $imgname follows optional parameter $w in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/lib/Cpdf.php on line 5410
+[25-Oct-2024 15:06:24 UTC] PHP Deprecated:  Required parameter $pattern_name follows optional parameter $corner_style in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/src/Renderer/AbstractRenderer.php on line 827
+[25-Oct-2024 15:32:49 UTC] PHP Deprecated:  Required parameter $dompdf follows optional parameter $paper in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/src/Adapter/CPDF.php on line 182
+[25-Oct-2024 15:32:49 UTC] PHP Deprecated:  Required parameter $dompdf follows optional parameter $paper in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/src/Canvas.php on line 27
+[25-Oct-2024 15:32:49 UTC] PHP Deprecated:  Required parameter $img follows optional parameter $w in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/lib/Cpdf.php on line 4723
+[25-Oct-2024 15:32:49 UTC] PHP Deprecated:  Required parameter $data follows optional parameter $w in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/lib/Cpdf.php on line 5066
+[25-Oct-2024 15:32:49 UTC] PHP Deprecated:  Required parameter $imageWidth follows optional parameter $w in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/lib/Cpdf.php on line 5410
+[25-Oct-2024 15:32:49 UTC] PHP Deprecated:  Required parameter $imageHeight follows optional parameter $w in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/lib/Cpdf.php on line 5410
+[25-Oct-2024 15:32:49 UTC] PHP Deprecated:  Required parameter $imgname follows optional parameter $w in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/lib/Cpdf.php on line 5410
+[25-Oct-2024 15:32:50 UTC] PHP Deprecated:  Required parameter $pattern_name follows optional parameter $corner_style in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/src/Renderer/AbstractRenderer.php on line 827
+[13-Dec-2024 15:14:39 UTC] PHP Deprecated:  Required parameter $dompdf follows optional parameter $paper in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/src/Adapter/CPDF.php on line 182
+[13-Dec-2024 15:14:39 UTC] PHP Deprecated:  Required parameter $dompdf follows optional parameter $paper in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/src/Canvas.php on line 27
+[13-Dec-2024 15:14:39 UTC] PHP Deprecated:  Required parameter $img follows optional parameter $w in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/lib/Cpdf.php on line 4723
+[13-Dec-2024 15:14:39 UTC] PHP Deprecated:  Required parameter $data follows optional parameter $w in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/lib/Cpdf.php on line 5066
+[13-Dec-2024 15:14:39 UTC] PHP Deprecated:  Required parameter $imageWidth follows optional parameter $w in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/lib/Cpdf.php on line 5410
+[13-Dec-2024 15:14:39 UTC] PHP Deprecated:  Required parameter $imageHeight follows optional parameter $w in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/lib/Cpdf.php on line 5410
+[13-Dec-2024 15:14:39 UTC] PHP Deprecated:  Required parameter $imgname follows optional parameter $w in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/lib/Cpdf.php on line 5410
+[13-Dec-2024 15:14:39 UTC] PHP Deprecated:  Required parameter $pattern_name follows optional parameter $corner_style in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/src/Renderer/AbstractRenderer.php on line 827
+[17-Jan-2025 14:52:53 UTC] PHP Deprecated:  Required parameter $dompdf follows optional parameter $paper in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/src/Adapter/CPDF.php on line 182
+[17-Jan-2025 14:52:53 UTC] PHP Deprecated:  Required parameter $dompdf follows optional parameter $paper in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/src/Canvas.php on line 27
+[17-Jan-2025 14:52:53 UTC] PHP Deprecated:  Required parameter $img follows optional parameter $w in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/lib/Cpdf.php on line 4723
+[17-Jan-2025 14:52:53 UTC] PHP Deprecated:  Required parameter $data follows optional parameter $w in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/lib/Cpdf.php on line 5066
+[17-Jan-2025 14:52:53 UTC] PHP Deprecated:  Required parameter $imageWidth follows optional parameter $w in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/lib/Cpdf.php on line 5410
+[17-Jan-2025 14:52:53 UTC] PHP Deprecated:  Required parameter $imageHeight follows optional parameter $w in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/lib/Cpdf.php on line 5410
+[17-Jan-2025 14:52:53 UTC] PHP Deprecated:  Required parameter $imgname follows optional parameter $w in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/lib/Cpdf.php on line 5410
+[17-Jan-2025 14:52:53 UTC] PHP Deprecated:  Required parameter $pattern_name follows optional parameter $corner_style in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/src/Renderer/AbstractRenderer.php on line 827
+[17-Jan-2025 18:25:22 UTC] PHP Deprecated:  Required parameter $dompdf follows optional parameter $paper in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/src/Adapter/CPDF.php on line 182
+[17-Jan-2025 18:25:22 UTC] PHP Deprecated:  Required parameter $dompdf follows optional parameter $paper in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/src/Canvas.php on line 27
+[17-Jan-2025 18:25:22 UTC] PHP Deprecated:  Required parameter $img follows optional parameter $w in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/lib/Cpdf.php on line 4723
+[17-Jan-2025 18:25:22 UTC] PHP Deprecated:  Required parameter $data follows optional parameter $w in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/lib/Cpdf.php on line 5066
+[17-Jan-2025 18:25:22 UTC] PHP Deprecated:  Required parameter $imageWidth follows optional parameter $w in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/lib/Cpdf.php on line 5410
+[17-Jan-2025 18:25:22 UTC] PHP Deprecated:  Required parameter $imageHeight follows optional parameter $w in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/lib/Cpdf.php on line 5410
+[17-Jan-2025 18:25:22 UTC] PHP Deprecated:  Required parameter $imgname follows optional parameter $w in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/lib/Cpdf.php on line 5410
+[17-Jan-2025 18:25:22 UTC] PHP Deprecated:  Required parameter $pattern_name follows optional parameter $corner_style in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/src/Renderer/AbstractRenderer.php on line 827
+[20-Jan-2025 15:47:59 UTC] PHP Deprecated:  Required parameter $dompdf follows optional parameter $paper in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/src/Adapter/CPDF.php on line 182
+[20-Jan-2025 15:47:59 UTC] PHP Deprecated:  Required parameter $dompdf follows optional parameter $paper in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/src/Canvas.php on line 27
+[20-Jan-2025 15:47:59 UTC] PHP Deprecated:  Required parameter $img follows optional parameter $w in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/lib/Cpdf.php on line 4723
+[20-Jan-2025 15:47:59 UTC] PHP Deprecated:  Required parameter $data follows optional parameter $w in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/lib/Cpdf.php on line 5066
+[20-Jan-2025 15:47:59 UTC] PHP Deprecated:  Required parameter $imageWidth follows optional parameter $w in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/lib/Cpdf.php on line 5410
+[20-Jan-2025 15:47:59 UTC] PHP Deprecated:  Required parameter $imageHeight follows optional parameter $w in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/lib/Cpdf.php on line 5410
+[20-Jan-2025 15:47:59 UTC] PHP Deprecated:  Required parameter $imgname follows optional parameter $w in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/lib/Cpdf.php on line 5410
+[20-Jan-2025 15:47:59 UTC] PHP Deprecated:  Required parameter $pattern_name follows optional parameter $corner_style in /home/mertyzpc/school.mertu.org/vendor/dompdf/dompdf/src/Renderer/AbstractRenderer.php on line 827

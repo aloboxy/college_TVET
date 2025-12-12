@@ -1,0 +1,18 @@
+.exam-table {
+    border: 1px solid #000;
+    border-collapse: collapse;
+}
+.student-table {
+    width: 100% !important;
+    table-layout: fixed;
+}
+
+.dataTables_wrapper {
+    width: 100% !important;
+    margin: 0 auto !important;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    min-height: 300px; /* Adjust as needed */
+}

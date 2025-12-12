@@ -1,0 +1,777 @@
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+DROP TABLE IF EXISTS `academic_year`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `academic_year` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `year` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `access`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `access` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `term_id` int DEFAULT NULL,
+  `section_id` int NOT NULL,
+  `year` varchar(255) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `my_class_id` int NOT NULL,
+  `student_id` int NOT NULL,
+  `access` int DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `Updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `blood_groups`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `blood_groups` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `book_requests`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `book_requests` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `book_id` int unsigned NOT NULL,
+  `user_id` int unsigned NOT NULL,
+  `start_date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `end_date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `returned` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `book_requests_book_id_foreign` (`book_id`),
+  KEY `book_requests_user_id_foreign` (`user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `books`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `books` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `my_class_id` int unsigned DEFAULT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `author` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `book_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `location` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `total_copies` int DEFAULT NULL,
+  `issued_copies` int DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `books_my_class_id_foreign` (`my_class_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `class_types`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `class_types` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `program` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `teacher_id` int DEFAULT NULL,
+  `college_id` int DEFAULT NULL,
+  `class_base` tinyint(1) NOT NULL DEFAULT '0',
+  `total_credit` int DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `colleges`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `colleges` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dean` bigint unsigned DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `colleges_name_unique` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `courses`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `courses` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `subject_id` int unsigned NOT NULL,
+  `for_all` tinyint(1) NOT NULL DEFAULT '0',
+  `section_id` int unsigned DEFAULT NULL,
+  `my_class_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `time_to` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `time_from` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `day` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `session` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `term_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `teacher_id` int unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `room` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `capacity` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '50',
+  `total` int NOT NULL DEFAULT '0',
+  `year` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `department_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `level` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `courses_subject_id_foreign` (`subject_id`),
+  KEY `courses_my_class_id_foreign` (`my_class_id`(250)),
+  KEY `courses_section_id_foreign` (`section_id`),
+  KEY `courses_teacher_id_foreign` (`teacher_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `dorms`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `dorms` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `dorms_name_unique` (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `elections`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `elections` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `student_id` int NOT NULL,
+  `voter_id` varchar(255) NOT NULL,
+  `v_pass` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf16le;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `enrolleds`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `enrolleds` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `course_id` int unsigned NOT NULL,
+  `subject_id` int unsigned NOT NULL,
+  `my_class_id` int unsigned DEFAULT NULL,
+  `section_id` int DEFAULT NULL,
+  `user_id` int unsigned NOT NULL,
+  `session` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `term_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `time_to` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `time_from` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `day` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `room` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `teacher_id` int NOT NULL,
+  `year` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `enrolleds_subject_id_foreign` (`subject_id`),
+  KEY `enrolleds_course_id_foreign` (`course_id`),
+  KEY `enrolleds_my_class_id_foreign` (`my_class_id`),
+  KEY `enrolleds_user_id_foreign` (`user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `events`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `events` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `start` date DEFAULT NULL,
+  `end` date DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `exam_records`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `exam_records` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `exam_id` int unsigned NOT NULL,
+  `student_id` int unsigned NOT NULL,
+  `my_class_id` int unsigned DEFAULT NULL,
+  `section_id` int unsigned DEFAULT NULL,
+  `total` float DEFAULT NULL,
+  `ave` float DEFAULT NULL,
+  `class_ave` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pos` int DEFAULT NULL,
+  `af` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ps` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `p_comment` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `t_comment` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `year` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `failed` tinyint(1) NOT NULL DEFAULT '0',
+  `resit` int NOT NULL DEFAULT '0',
+  `department_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `exam_records_exam_id_foreign` (`exam_id`),
+  KEY `exam_records_my_class_id_foreign` (`my_class_id`),
+  KEY `exam_records_student_id_foreign` (`student_id`),
+  KEY `exam_records_section_id_foreign` (`section_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `exams`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `exams` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `term` tinyint NOT NULL,
+  `year` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `published` tinyint(1) NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `exams_term_year_unique` (`term`,`year`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `grades`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `grades` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `class_type_id` int unsigned DEFAULT NULL,
+  `mark_from` tinyint NOT NULL,
+  `mark_to` tinyint NOT NULL,
+  `grade` float DEFAULT NULL,
+  `remark` varchar(40) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `grades_name_class_type_id_remark_unique` (`name`,`class_type_id`,`remark`),
+  KEY `grades_class_type_id_foreign` (`class_type_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `lgas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `lgas` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `state_id` int unsigned NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `lgas_state_id_foreign` (`state_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `majors`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `majors` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `department_id` bigint unsigned NOT NULL,
+  `major` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `marks`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `marks` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `student_id` int unsigned NOT NULL,
+  `subject_id` int unsigned NOT NULL,
+  `my_class_id` int unsigned DEFAULT NULL,
+  `department_id` int DEFAULT NULL,
+  `section_id` int unsigned DEFAULT NULL,
+  `exam_id` int unsigned NOT NULL,
+  `t1` int DEFAULT NULL,
+  `t2` int DEFAULT NULL,
+  `s1` int DEFAULT NULL,
+  `t3` int DEFAULT NULL,
+  `t4` int DEFAULT NULL,
+  `tca` int DEFAULT NULL,
+  `exm` int DEFAULT NULL,
+  `tex1` int DEFAULT NULL,
+  `tex2` int DEFAULT NULL,
+  `tex3` int DEFAULT NULL,
+  `sub_pos` tinyint DEFAULT NULL,
+  `cum` int DEFAULT NULL,
+  `cum_ave` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `grade_id` int unsigned DEFAULT NULL,
+  `grade_get` float DEFAULT NULL,
+  `year` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `term_id` int DEFAULT NULL,
+  `failed` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `marks_student_id_foreign` (`student_id`),
+  KEY `marks_my_class_id_foreign` (`my_class_id`),
+  KEY `marks_section_id_foreign` (`section_id`),
+  KEY `marks_subject_id_foreign` (`subject_id`),
+  KEY `marks_exam_id_foreign` (`exam_id`),
+  KEY `marks_grade_id_foreign` (`grade_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `migrations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `migrations` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `minors`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `minors` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `major_id` int unsigned NOT NULL,
+  `minor` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `my_classes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `my_classes` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `deptcode` int DEFAULT NULL,
+  `class_type_id` int unsigned DEFAULT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `my_classes_class_type_id_name_unique` (`class_type_id`,`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `nationalities`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `nationalities` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `password_resets`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `password_resets` (
+  `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  KEY `password_resets_email_index` (`email`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `payment_records`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `payment_records` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `payment_id` int unsigned NOT NULL,
+  `student_id` int unsigned NOT NULL,
+  `ref_no` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `term_id` int DEFAULT NULL,
+  `amt_paid` int DEFAULT NULL,
+  `balance` int DEFAULT NULL,
+  `paid` tinyint NOT NULL DEFAULT '0',
+  `year` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `payment_records_ref_no_unique` (`ref_no`),
+  KEY `payment_records_payment_id_foreign` (`payment_id`),
+  KEY `payment_records_student_id_foreign` (`student_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `payments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `payments` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `amount` int NOT NULL,
+  `ref_no` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `method` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'cash',
+  `my_class_id` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `year` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `term_id` int DEFAULT NULL,
+  `department_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `section_id` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `payments_ref_no_unique` (`ref_no`),
+  KEY `payments_my_class_id_foreign` (`my_class_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `pins`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `pins` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `code` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `used` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `times_used` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `user_id` int unsigned DEFAULT NULL,
+  `student_id` int unsigned DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `pins_code_unique` (`code`),
+  KEY `pins_user_id_foreign` (`user_id`),
+  KEY `pins_student_id_foreign` (`student_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `promotions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `promotions` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `student_id` int unsigned NOT NULL,
+  `from_class` int unsigned NOT NULL,
+  `from_section` int unsigned NOT NULL,
+  `to_class` int unsigned NOT NULL,
+  `to_section` int unsigned NOT NULL,
+  `grad` tinyint NOT NULL,
+  `from_session` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `to_session` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `promotions_student_id_foreign` (`student_id`),
+  KEY `promotions_from_class_foreign` (`from_class`),
+  KEY `promotions_from_section_foreign` (`from_section`),
+  KEY `promotions_to_section_foreign` (`to_section`),
+  KEY `promotions_to_class_foreign` (`to_class`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `receipts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `receipts` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `pr_id` int unsigned NOT NULL,
+  `amt_paid` int NOT NULL,
+  `balance` int NOT NULL,
+  `year` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `receipts_pr_id_foreign` (`pr_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `sections`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `sections` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `whatsapplink` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `my_class_id` int unsigned NOT NULL,
+  `teacher_id` int unsigned DEFAULT NULL,
+  `active` tinyint NOT NULL DEFAULT '0',
+  `planning` tinyint(1) NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `sections_name_my_class_id_unique` (`name`,`my_class_id`),
+  KEY `sections_my_class_id_foreign` (`my_class_id`),
+  KEY `sections_teacher_id_foreign` (`teacher_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `settings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `settings` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `skills`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `skills` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `skill_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `class_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `staff_records`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `staff_records` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int unsigned NOT NULL,
+  `code` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `emp_date` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `staff_records_code_unique` (`code`),
+  KEY `staff_records_user_id_foreign` (`user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `states`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `states` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `student_courses`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `student_courses` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `student_id` bigint unsigned NOT NULL,
+  `course_id` bigint unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `course_id` (`course_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `student_records`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `student_records` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int unsigned NOT NULL,
+  `my_class_id` int unsigned DEFAULT NULL,
+  `section_id` int unsigned DEFAULT NULL,
+  `adm_no` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `dorm_id` int unsigned DEFAULT NULL,
+  `dorm_room_no` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `session` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `semester` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `my_parent` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `age` tinyint DEFAULT NULL,
+  `year_admitted` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `grad` tinyint NOT NULL DEFAULT '0',
+  `grad_date` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `previous_school` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  `college_id` int DEFAULT NULL,
+  `major` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `minor` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `level` enum('Freshmen','Sophomore','Junior','Senior') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `department_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `student_records_adm_no_unique` (`adm_no`),
+  KEY `student_records_user_id_foreign` (`user_id`),
+  KEY `student_records_my_class_id_foreign` (`my_class_id`),
+  KEY `student_records_section_id_foreign` (`section_id`),
+  KEY `student_records_dorm_id_foreign` (`dorm_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `subjects`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `subjects` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `department_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `teacher_id` int unsigned DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `term_id` int DEFAULT NULL,
+  `clinical` tinyint(1) NOT NULL DEFAULT '0',
+  `credit` int NOT NULL DEFAULT '3',
+  `level` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `prerequisite_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `subjects_teacher_id_foreign` (`teacher_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `time_slots`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `time_slots` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `ttr_id` int unsigned NOT NULL,
+  `hour_from` tinyint NOT NULL,
+  `min_from` varchar(2) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meridian_from` varchar(2) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `hour_to` tinyint NOT NULL,
+  `min_to` varchar(2) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meridian_to` varchar(2) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `time_from` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `time_to` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `timestamp_from` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `timestamp_to` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `full` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `time_slots_ttr_id_foreign` (`ttr_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `time_table_records`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `time_table_records` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `my_class_id` int unsigned NOT NULL,
+  `exam_id` int unsigned DEFAULT NULL,
+  `year` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `time_table_records_exam_id_foreign` (`exam_id`),
+  KEY `time_table_records_my_class_id_foreign` (`my_class_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `time_tables`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `time_tables` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `ttr_id` int unsigned NOT NULL,
+  `ts_id` int unsigned NOT NULL,
+  `subject_id` int unsigned DEFAULT NULL,
+  `exam_date` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `timestamp_from` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `timestamp_to` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `day` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `day_num` tinyint DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `time_tables_ttr_id_foreign` (`ttr_id`),
+  KEY `time_tables_ts_id_foreign` (`ts_id`),
+  KEY `time_tables_subject_id_foreign` (`subject_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `user_types`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `user_types` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `level` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `users` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `code` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dob` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `gender` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'http://localhost/global_assets/images/user.png',
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone2` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `bg_id` int unsigned DEFAULT NULL,
+  `state_id` int unsigned DEFAULT NULL,
+  `lga_id` int unsigned DEFAULT NULL,
+  `nal_id` int unsigned DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_code_unique` (`code`),
+  UNIQUE KEY `users_email_unique` (`email`),
+  UNIQUE KEY `users_username_unique` (`username`),
+  KEY `users_state_id_foreign` (`state_id`),
+  KEY `users_lga_id_foreign` (`lga_id`),
+  KEY `users_bg_id_foreign` (`bg_id`),
+  KEY `users_nal_id_foreign` (`nal_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+INSERT INTO `migrations` VALUES (574,'2013_09_20_121733_create_blood_groups_table',2);
+INSERT INTO `migrations` VALUES (575,'2013_09_22_124750_create_states_table',2);
+INSERT INTO `migrations` VALUES (576,'2013_09_22_124806_create_lgas_table',2);
+INSERT INTO `migrations` VALUES (577,'2013_09_26_121148_create_nationalities_table',2);
+INSERT INTO `migrations` VALUES (578,'2014_10_12_000000_create_users_table',2);
+INSERT INTO `migrations` VALUES (579,'2014_10_12_100000_create_password_resets_table',2);
+INSERT INTO `migrations` VALUES (580,'2018_09_20_100249_create_user_types_table',2);
+INSERT INTO `migrations` VALUES (581,'2018_09_20_150906_create_class_types_table',2);
+INSERT INTO `migrations` VALUES (582,'2018_09_22_073005_create_my_classes_table',2);
+INSERT INTO `migrations` VALUES (583,'2018_09_22_073526_create_sections_table',2);
+INSERT INTO `migrations` VALUES (584,'2018_09_22_080555_create_settings_table',2);
+INSERT INTO `migrations` VALUES (585,'2018_09_22_081302_create_subjects_table',2);
+INSERT INTO `migrations` VALUES (586,'2018_09_22_151514_create_student_records_table',2);
+INSERT INTO `migrations` VALUES (587,'2018_09_26_124241_create_dorms_table',2);
+INSERT INTO `migrations` VALUES (588,'2018_10_04_224910_create_exams_table',2);
+INSERT INTO `migrations` VALUES (589,'2018_10_06_224846_create_marks_table',2);
+INSERT INTO `migrations` VALUES (590,'2018_10_06_224944_create_grades_table',2);
+INSERT INTO `migrations` VALUES (591,'2018_10_06_225007_create_pins_table',2);
+INSERT INTO `migrations` VALUES (592,'2018_10_18_205550_create_skills_table',2);
+INSERT INTO `migrations` VALUES (593,'2018_10_18_205842_create_exam_records_table',2);
+INSERT INTO `migrations` VALUES (594,'2018_10_31_191358_create_books_table',2);
+INSERT INTO `migrations` VALUES (595,'2018_10_31_192540_create_book_requests_table',2);
+INSERT INTO `migrations` VALUES (596,'2018_11_01_132115_create_staff_records_table',2);
+INSERT INTO `migrations` VALUES (597,'2018_11_03_210758_create_payments_table',2);
+INSERT INTO `migrations` VALUES (598,'2018_11_03_210817_create_payment_records_table',2);
+INSERT INTO `migrations` VALUES (599,'2018_11_06_083707_create_receipts_table',2);
+INSERT INTO `migrations` VALUES (600,'2018_11_27_180401_create_time_tables_table',2);
+INSERT INTO `migrations` VALUES (601,'2019_09_22_142514_create_fks',2);
+INSERT INTO `migrations` VALUES (602,'2019_09_26_132227_create_promotions_table',2);
+INSERT INTO `migrations` VALUES (572,'2020_08_15_090442_create_courses_table',1);
+INSERT INTO `migrations` VALUES (573,'2023_08_08_142320_student_courses_table',1);

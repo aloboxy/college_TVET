@@ -1,0 +1,347 @@
+/* Modern Premium UI Override */
+:root {
+    --primary-color: #4F46E5;
+    /* Indigo 600 */
+    --primary-hover: #4338ca;
+    --secondary-color: #10B981;
+    /* Emerald 500 */
+    --accent-color: #F59E0B;
+    /* Amber 500 */
+    --bg-body: #f3f4f6;
+    /* Gray 100 */
+    --bg-card: #ffffff;
+    --text-main: #111827;
+    /* Gray 900 */
+    --text-muted: #6B7280;
+    /* Gray 500 */
+    --border-color: #e5e7eb;
+    /* Gray 200 */
+    --sidebar-width: 280px;
+    --sidebar-bg: #1e1e2d;
+    --sidebar-text: #9ca3af;
+    --sidebar-active: #ffffff;
+    --sidebar-active-bg: rgba(255, 255, 255, 0.1);
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --font-heading: 'Inter', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body {
+    background-color: var(--bg-body);
+    font-family: var(--font-body);
+    color: var(--text-main);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+/* Card Styling */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-bottom: 1.5rem;
+}
+
+.card:hover {
+    box-shadow: var(--shadow-md);
+    /* transform: translateY(-2px); */
+    /* Optional hover effect */
+}
+
+.card-header {
+    background-color: transparent;
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.25rem 1.5rem;
+}
+
+.card-header .header-elements-inline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+/* Buttons */
+.btn {
+    border-radius: var(--radius-md);
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+    box-shadow: var(--shadow-md);
+}
+
+/* Navbar / Top Menu */
+.navbar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    z-index: 1040;
+    position: relative;
+}
+
+.navbar-brand img {
+    height: 32px;
+}
+
+/* Sidebar Styling Override */
+.sidebar {
+    background-color: var(--sidebar-bg) !important;
+    width: var(--sidebar-width);
+    border-right: 1px solid var(--border-color);
+}
+
+.sidebar-content {
+    background: transparent;
+}
+
+.nav-sidebar .nav-item>.nav-link {
+    color: var(--sidebar-text);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0;
+    transition: all 0.2s;
+}
+
+.nav-sidebar .nav-item>.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #fff;
+}
+
+.nav-sidebar .nav-item>.nav-link.active {
+    background-color: var(--primary-color);
+    color: #fff;
+    box-shadow: var(--shadow-md);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    /* Right rounded */
+}
+
+.nav-sidebar .nav-item-header {
+    padding: 1.5rem 1.5rem 0.5rem;
+    color: #6b7280;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* User Profile in Sidebar */
+.sidebar-user {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+.sidebar-user .media-title {
+    color: #fff;
+}
+
+/* Forms */
+.form-control {
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    padding: 0.6rem 1rem;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+/* Tables */
+.table {
+    margin-bottom: 0;
+}
+
+.table thead th {
+    background-color: #f9fafb;
+    color: #374151;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-color);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+}
+
+.table td,
+.table th {
+    padding: 1rem 1.5rem;
+    vertical-align: middle;
+}
+
+/* Badges */
+.badge {
+    padding: 0.35em 0.65em;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    border-radius: 9999px;
+}
+
+/* Page Header */
+.page-header {
+    background: transparent;
+    border-bottom: none;
+    padding: 2rem 0;
+}
+
+.page-title h4 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.breadcrumb {
+    background: transparent;
+    padding: 0;
+    font-size: 0.875rem;
+}
+
+/* Utility Colors for Dashboard Icons */
+.bg-indigo-100 {
+    background-color: #e0e7ff;
+}
+
+.text-indigo-600 {
+    color: #4f46e5;
+}
+
+.bg-blue-100 {
+    background-color: #dbeafe;
+}
+
+.text-blue-600 {
+    color: #2563eb;
+}
+
+.bg-danger-100 {
+    background-color: #fee2e2;
+}
+
+.text-danger-600 {
+    color: #dc2626;
+}
+
+.bg-success-100 {
+    background-color: #d1fae5;
+}
+
+.text-success-600 {
+    color: #059669;
+}
+
+.rounded-circle {
+    border-radius: 50% !important;
+}
+
+.p-2 {
+    padding: 0.5rem !important;
+}
+
+.shadow-sm {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.border-0 {
+    border: 0 !important;
+}
+
+.h-100 {
+    height: 100% !important;
+}
+
+.font-weight-bold {
+    font-weight: 700 !important;
+}
+
+.text-dark {
+    color: #111827 !important;
+}
+
+.text-muted {
+    color: #6b7280 !important;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .sidebar {
+        /* Sidebar hidden by default on mobile unless toggled */
+        /* Currently existing JS toggles 'sidebar-mobile-main' or similar. 
+           We need to ensure it overlays correctly. */
+        position: fixed;
+        z-index: 1050;
+        height: 100%;
+        left: -280px;
+        /* Hide off-canvas */
+        transition: left 0.3s ease-in-out;
+    }
+
+    .sidebar-mobile-open .sidebar {
+        left: 0;
+    }
+
+    .content-wrapper {
+        margin-left: 0 !important;
+        /* Full width content on mobile */
+    }
+
+    .page-header {
+        padding: 1rem 0;
+    }
+
+    .card {
+        margin-bottom: 1rem;
+    }
+
+    .navbar-brand img {
+        height: 28px;
+        /* Smaller logo on mobile */
+    }
+}
+
+/* Chart Container */
+.chart-container {
+    position: relative;
+    height: 300px;
+    width: 100%;
+}
