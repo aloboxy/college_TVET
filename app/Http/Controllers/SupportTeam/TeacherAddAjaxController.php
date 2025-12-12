@@ -225,5 +225,16 @@ class TeacherAddAjaxController extends Controller
         return response()->json($sections->toArray());
     }
 
+    public function getStudentsByCourse(Request $request)
+    {
+        $students = DB::table('enrolleds')
+        ->join('users', 'users.id', '=', 'enrolleds.user_id')
+        ->where('enrolleds.course_id', $request->course_id)
+        ->select('users.id as id', 'users.name as name')
+        ->get();
+
+        return response()->json($students->toArray());
+    }
+
 }
     

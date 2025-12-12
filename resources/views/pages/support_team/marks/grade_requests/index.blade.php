@@ -151,69 +151,75 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                             <div class="col-md-6">
+                             <div class="col-mb-2 mx-1">
                                 <div class="form-group">
-                                    <label>Exam:</label>
-                                    <select required name="exam_id" class="form-control select-search">
+                                    <label class="col-form-label font-weight-bold">Exam:</label>
+                                    <select required name="year" id="year" class="form-control select-search">
                                         <option value="">Select Exam</option>
-                                        @foreach(\App\Models\Exam::all() as $e)
-                                            <option value="{{ $e->id }}">{{ $e->name }} - {{ $e->year }}</option>
+                                        @foreach(\App\Models\AcademicYear::all() as $e)
+                                            <option value="{{ $e->year }}">{{ $e->year }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
-                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Class:</label>
-                                    <select required name="my_class_id" class="form-control select-search">
-                                        <option value="">Select Class</option>
-                                        @foreach(\App\Models\MyClass::all() as $c)
-                                            <option value="{{ $c->id }}">{{ $c->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
+
+                    <div class="col-mb-2 mx-1">
+                        <div class="form-group">
+                            <label for="exam_id" class="col-form-label font-weight-bold">Semester:</label>
+                            <select required id="exam_id" name="exam_id" class="form-control">
+                                <option value="">Select Semester</option>
+                            </select>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Section:</label>
-                                    <select required name="section_id" class="form-control select-search">
-                                        <option value="">Select Section</option>
-                                          @foreach(\App\Models\Section::all() as $s)
-                                            <option value="{{ $s->id }}">{{ $s->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Subject:</label>
-                                    <select required name="subject_id" class="form-control select-search">
-                                        <option value="">Select Subject</option>
-                                        @foreach(\App\Models\Subject::orderBy('name')->get() as $s)
-                                            <option value="{{ $s->id }}">{{ $s->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
+                    </div>
+
+                    <div class="col-mb-2 mx-1">
+                        <div class="form-group">
+                            <label for="my_class_id" class="col-form-label font-weight-bold">Department:</label>
+                            <select required class="select-search form-control" id="department_id" name="department_id" >
+                                <option value="">Select Department</option>
+                                @foreach(\App\Models\ClassType::all() as $department)
+                                    <option value="{{ $department->id }}">{{ $department->name }}</option>
+                                @endforeach
+                            </select>
                         </div>
+                    </div>
+
+                    <div class="col-mb-2 mx-1">
+                        <div class="form-group">
+                            <label for="level" class="col-form-label font-weight-bold">Level:</label>
+                            <select required class="form-control select" id="level" name="level">
+                                <option value="">Please Select Level</option>
+                            
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-mb-2 mx-1">
+                        <div class="form-group">
+                            <label for="subject_id" class="col-form-label font-weight-bold">Subject:</label>
+                            <select required class="select-search form-control" id="subject_id" name="subject_id" >
+                                <option value="">Select Course</option>
+                                
+                            </select>
+                        </div>
+                    </div>
+
+
+
+
                          <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>Student (Start typing to search):</label>
-                                     <select required name="student_id" class="form-control select-search" data-placeholder="Select Student">
-                                        {{-- In a real app this should be ajax loaded for performance, but using typical seeding data for now --}}
-                                         @foreach(\App\Models\User::where('user_type', 'student')->limit(500)->get() as $s)
-                                            <option value="{{ $s->id }}">{{ $s->name }} ({{ $s->code }})</option>
-                                        @endforeach
+                                    <label class="col-form-label font-weight-bold">Student (Start typing to search):</label>
+                                     <select required name="student_id" id="student_id" class="form-control select2" data-placeholder="Type to search students...">
+                                        <option value=""></option>
                                     </select>
                                 </div>
                             </div>
                         </div>
-
+                        </div>
                         <hr>
-                        <h6>New Marks</h6>
+                <h6>New Marks</h6>
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
@@ -253,7 +259,6 @@
                             </div>
                         </div>
 
-                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Submit Request</button>
@@ -263,5 +268,175 @@
         </div>
     </div>
     @endif
+
+    <script  type="text/javascript">
+     $.ajaxSetup({
+        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
+});
+
+// Initialize select2 for student dropdown
+
+
+// Update student dropdown when class or section changes
+$('#my_class_id, #section_id').on('change', function() {
+    $('#student_id').val(null).trigger('change');
+});
+
+// Loading exams
+$('#year').change(function(){
+    var year = $(this).val();
+// alert(year);
+if(year)
+{
+$.ajax({
+    type: "GET",
+    url: "{{url('year/semester') }}?year="+year,
+    beforeSend: function() {
+                $('#loading').show(); // Show spinner
+            },
+    success:function(data){
+        // console.log(data);
+        $('#exam_id').empty();
+        $('#my_class_id').empty();
+        $('#section_id').empty();
+        $('#exam_id').append('<option>Please select</option>');
+        $.each(data, function(key){
+            $('#exam_id').append('<option value="' + data[key].id +'">'+data[key].name + '</option>');
+        });
+        $('#loading').hide(); // Hide spinner
+    }
+
+});
+}
+else{
+$('#exam_id').empty();
+$('#loading').hide(); // Hide spinner
+}
+})
+
+$('#exam_id').change(function(){
+    var exam = $(this).val();
+    $('#department_id').empty();
+    $('#department_id').append('<option>Please select</option>');
+    $('#level').empty();
+    $('#level').append('<option>Please select</option>');
+// console.log(exam);
+    if(exam)
+    {
+        $.ajax({
+            type: "GET",
+            url: "{{url('exam/department') }}",
+            beforeSend: function() {
+                        $('#loading').show(); // Show spinner
+                    },
+            success:function(data){
+                console.log(data);
+                $('#department_id').empty();
+                $('#department_id').append('<option>Please select</option>');
+                $.each(data, function(key){
+                    $('#department_id').append('<option value="' + data[key].id +'">'+data[key].name + '</option>');
+                });
+                $('#loading').hide(); // Hide spinner
+            }
+
+        });
+    }
+    else{
+    $('#department_id').empty();
+    $('#loading').hide(); // Hide spinner
+    }
+})
+
+$('#department_id').change(function(){
+    var level = ['Freshmen', 'Sophomore', 'Junior', 'Senior'];
+    var department_id  = $('#department_id').val();
+    var exam = $('#exam_id').val();
+    var year = $('#year').val();
+
+    if(department_id && exam && year)
+    {
+
+    $('#level').empty(); // Clear existing options
+    $('#level').append('<option>Please select</option>');
+    $.each(level, function(index, value){
+        $('#level').append('<option value="' + value + '">' + value + '</option>');
+    });
+    }
+    else{
+        $('#level').empty();
+    }
+});
+
+
+
+//loading courses for selection
+$('#level').change(function(){
+var department_id  = $('#department_id').val();
+var level = $(this).val();
+var exam = $('#exam_id').val();
+var year = $('#year').val();
+// alert(exam);
+if(department_id && level && exam && year)
+{
+$.ajax({
+    type: "GET",
+    url: "{{url('department/course')}}",
+    data: {
+        'department_id':department_id,
+        'level':level,
+        'exam':exam,
+        'year':year
+    },
+    beforeSend: function() {
+                $('#loading').show(); // Show spinner
+            },
+    success:function(data){
+        //console.log(data);
+        $('#subject_id').empty();
+        $('#subject_id').append('<option>Please select</option>');
+        $.each(data, function(key){
+            $('#subject_id').append(
+                '<option value="' + data[key].id + '">' +
+                data[key].subject + ' session-' + data[key].session +'--' +data[key].name +
+                '</option>'
+            );
+        });
+        $('#loading').hide(); // Hide spinner
+    }
+
+});
+}
+else{
+$('#subject_id').empty();
+$('#loading').hide(); // Hide spinner
+}
+}); 
+
+
+$('#subject_id').change(function(){
+    var course_id = $(this).val();
+    if(course_id) {
+        $.ajax({
+            url: "{{ route('course.students') }}",
+            type: "GET",
+            data: { course_id: course_id },
+            success: function(data) {
+              $.each(data, function(key) {
+                    $('#student_id').append(
+                '<option value="' + data[key].id + '">' +
+                data[key].name +
+                '</option>'
+            );
+            });
+            }
+        });
+    }
+    else{
+        // Clear students dropdown if no course selected
+    $('#student_id').empty();
+    }
+});
+
+</script>
 
 @endsection

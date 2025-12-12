@@ -267,11 +267,17 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('library', 'BookController');
         // Route::resource('access','AccessController');
 
+
+
         Route::get('teacheradd', 'TeacherAddAjaxController@index')->name('teacheradd.index');
         Route::get('teacheradd/getEnrolledStudents', 'TeacherAddAjaxController@getEnrolledStudents')->name('teacheradd.getEnrolledStudents');
         Route::get('teacheradd/getUnenrolledStudents', 'TeacherAddAjaxController@getUnenrolledStudents')->name('teacheradd.getUnenrolledStudents');
         Route::get('department/subject', [TeacherAddAjaxController::class, 'getSubjectByDepartment'])->name('department.subject');
         Route::get('department/course', [TeacherAddAjaxController::class, 'getCourseByDepartment'])->name('department.course');
+        /// course student lookup
+        Route::get('course/students', [TeacherAddAjaxController::class, 'getStudentsByCourse'])->name('course.students');
+
+
         Route::post('teacher/enroll', [TeacherAddAjaxController::class, 'enrollStudent'])->name('teacheradd.enroll');
         Route::delete('teacher/drop', [TeacherAddAjaxController::class, 'dropStudent'])->name('teacheradd.drop');
         Route::get('teacheradd/enrolled', [TeacherAddAjaxController::class, 'getEnrolledStudents'])->name('teacheradd.enrolled');
