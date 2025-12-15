@@ -42,6 +42,12 @@
     <a href="{{(Auth::user()->student_record->department->whatsapplink) ?? ''}} " target="_blank"><i class="fa fa-whatsapp" style="font-size:24px;color:#25d366"></i> WhatsApp chatroom</a>
 </li>
 
+ <li class="nav-item">
+                        <a href="{{ route('library.index') }}"
+                           class="nav-link {{ in_array(Route::currentRouteName(), ['library.index']) ? 'active' : '' }}"><i
+                                class="icon-books"></i> <span>Library</span></a>
+                    </li>
+
 </div>
 
 
