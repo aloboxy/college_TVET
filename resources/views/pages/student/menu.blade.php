@@ -43,10 +43,11 @@
 </li>
 
  <li class="nav-item">
-                        <a href="{{ route('library.index') }}"
-                           class="nav-link {{ in_array(Route::currentRouteName(), ['library.index']) ? 'active' : '' }}"><i
-                                class="icon-books"></i> <span>Library</span></a>
-                    </li>
+        <a href="{{ route('library.index') }}"
+                class="nav-link {{ in_array(Route::currentRouteName(), ['library.index']) ? 'active' : '' }}"><i
+                class="icon-books"></i> <span>Library</span>
+        </a>
+    </li>
 
 </div>
 

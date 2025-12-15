@@ -473,13 +473,13 @@
                             class="icon-user"></i> <span>My Account</span></a>
                 </li>
 
-                @if(Qs::userIsStudent())
+                {{-- @if(Qs::userIsStudent())
                     <li class="nav-item">
                         <a href="{{ route('library.index') }}"
                            class="nav-link {{ in_array(Route::currentRouteName(), ['library.index']) ? 'active' : '' }}"><i
                                 class="icon-books"></i> <span>Library</span></a>
                     </li>
-                @endif
+                @endif --}}
                 {{--For Staff--}}
                 @if(Qs::userIsTeamSAT())
                     <li class="nav-item">
