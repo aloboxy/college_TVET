@@ -25,7 +25,7 @@
                         <img class="card-img img-fluid" style="height: 250px; object-fit: cover;" src="{{ $book->cover_image ? asset('storage/'.$book->cover_image) : asset('global_assets/images/placeholders/placeholder.jpg') }}" alt="">
                         <div class="card-img-actions-overlay card-img">
                             @if($book->book_type == 'digital' && $book->url)
-                            <a href="{{ asset('storage/'.$book->url) }}" target="_blank" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round">
+                            <a href="{{ route('library.read', $book->id) }}" target="_blank" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round">
                                 <i class="icon-book-play"></i>
                             </a>
                             @endif
@@ -46,7 +46,8 @@
                         </div>
                         @else
                          <div class="mt-2">
-                             <a href="{{ asset('storage/'.$book->url) }}" target="_blank" class="btn btn-sm btn-light btn-block">Read Now</a>
+                             <a href="{{ route('library.read', $book->id) }}" target="_blank" class="btn btn-sm btn-info btn-block">Read Online</a>
+                             <a href="{{ route('library.download', $book->id) }}" class="btn btn-sm btn-light btn-block">Download</a>
                          </div>
                         @endif
                         

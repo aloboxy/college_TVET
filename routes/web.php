@@ -264,6 +264,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('college','CollegeController');
         Route::resource('major', 'MajorController');
         Route::resource('minor', 'MinorController');
+        Route::get('library/download/{book_id}', 'BookController@download')->name('library.download');
+        Route::get('library/read/{book_id}', 'BookController@read_online')->name('library.read');
         Route::resource('library', 'BookController');
         // Route::resource('access','AccessController');
 

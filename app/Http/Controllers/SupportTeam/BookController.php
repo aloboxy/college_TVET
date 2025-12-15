@@ -104,4 +104,40 @@ class BookController extends Controller
         Book::destroy($id);
         return back()->with('flash_success', __('msg.del_ok'));
     }
+    public function download($book_id) // Renamed parameter
+    {
+        $request = request();
+        \Illuminate\Support\Facades\Log::info("DEBUG: download called.");
+        \Illuminate\Support\Facades\Log::info("DEBUG: Route parameters: " . var_export($request->route()->parameters(), true));
+        \Illuminate\Support\Facades\Log::info("DEBUG: Argument book_id: " . var_export($book_id, true));
+
+        $id = $book_id; // Map back to $id for logic
+
+        $book = Book::find($id);
+        
+        if (!$book) {
+             \Illuminate\Support\Facades\Log::info("DEBUG: Book NOT FOUND for ID: $id");
+             $book = Book::findOrFail($id); // Will throw exception
+        }
+
+        if(Storage::disk('public')->exists($book->url)){
+            return Storage::disk('public')->download($book->url);
+        }
+        return back()->with('flash_error', 'File not found');
+    }
+
+    public function read_online($book_id)
+    {
+        $id = $book_id;
+        try {
+            $book = Book::findOrFail($id);
+            if (Storage::disk('public')->exists($book->url)) {
+                return Storage::disk('public')->response($book->url, null, ['Content-Disposition' => 'inline; filename="' . basename($book->url) . '"']);
+            }
+            return back()->with('flash_error', 'File not found');
+        } catch (\Throwable $e) {
+            \Illuminate\Support\Facades\Log::error('Read Online Error: ' . $e->getMessage());
+            return back()->with('flash_error', 'Error reading file: ' . $e->getMessage());
+        }
+    }
 }
