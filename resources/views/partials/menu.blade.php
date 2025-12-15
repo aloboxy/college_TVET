@@ -475,9 +475,9 @@
 
                 @if(Qs::userIsStudent())
                     <li class="nav-item">
-                        <a href="{{ route('marks.year_selector', Auth::user()->id) }}"
-                           class="nav-link {{ in_array(Route::currentRouteName(), ['marks.year_selector', 'marks.show']) ? 'active' : '' }}"><i
-                                class="icon-book-open"></i> <span>My Results</span></a>
+                        <a href="{{ route('library.index') }}"
+                           class="nav-link {{ in_array(Route::currentRouteName(), ['library.index']) ? 'active' : '' }}"><i
+                                class="icon-books"></i> <span>Library</span></a>
                     </li>
                 @endif
                 {{--For Staff--}}
